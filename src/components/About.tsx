@@ -1,9 +1,25 @@
+import Image from "next/image";
 import { COMPANY, WHATSAPP_URL } from "@/lib/constants";
 
 export function About() {
   return (
     <section id="sobre" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-3xl px-5 text-center md:px-12">
+        <div
+          data-reveal="zoom"
+          className="mb-8 flex items-center justify-center"
+        >
+          <div className="relative">
+            <span className="absolute inset-0 -m-6 rounded-full bg-brand/15 blur-2xl" />
+            <Image
+              src="/logo.png"
+              alt="Logótipo DAINEC"
+              width={220}
+              height={92}
+              className="logo-glow relative h-auto w-[180px] md:w-[220px]"
+            />
+          </div>
+        </div>
         <div
           data-reveal="up"
           className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-400"

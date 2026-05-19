@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function Loader() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setHidden(true), 1900);
+    const t = setTimeout(() => setHidden(true), 1600);
     return () => clearTimeout(t);
   }, []);
 
@@ -15,56 +16,31 @@ export function Loader() {
       className={`loader-overlay ${hidden ? "is-hidden" : ""}`}
       aria-hidden={hidden}
       role="status"
-      aria-label="A carregar"
+      aria-label="A carregar DAINEC"
     >
-      {/* Subtle ambient glow */}
-      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,149,0,0.12),_transparent_60%)]" />
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,149,0,0.14),_transparent_65%)]" />
 
-      <div className="relative flex flex-col items-center gap-7 px-6">
-        {/* Energized circuit + bolt */}
-        <div className="relative">
-          <svg
-            viewBox="0 0 140 140"
-            width="120"
-            height="120"
-            className="loader-circuit"
-            aria-hidden
-          >
-            {/* outer track */}
-            <rect
-              x="6"
-              y="6"
-              width="128"
-              height="128"
-              rx="6"
-              className="loader-track"
-            />
-            {/* energized path */}
-            <path
-              d="M6 40 L40 40 L48 32 L92 32 L100 40 L134 40
-                 M6 100 L40 100 L48 108 L92 108 L100 100 L134 100"
-              className="loader-wire"
-            />
-            {/* nodes */}
-            <circle cx="40" cy="40" r="2.4" className="loader-node" />
-            <circle cx="100" cy="40" r="2.4" className="loader-node" />
-            <circle cx="40" cy="100" r="2.4" className="loader-node" />
-            <circle cx="100" cy="100" r="2.4" className="loader-node" />
-            {/* central bolt */}
-            <path
-              d="M76 38 L56 76 H72 L66 102 L88 64 H72 L78 38 Z"
-              className="loader-bolt"
-            />
-          </svg>
-        </div>
+      <div className="relative flex flex-col items-center gap-6 px-6">
+        {/* Energy ripples around the logo */}
+        <div className="relative flex h-32 w-32 items-center justify-center">
+          <span className="loader-ripple" />
+          <span className="loader-ripple loader-ripple-2" />
+          <span className="loader-ripple loader-ripple-3" />
 
-        <div className="flex items-center gap-3">
-          <div className="font-display text-2xl font-extrabold tracking-[0.32em] text-ink">
-            DAI<span className="text-brand">NEC</span>
+          {/* Logo card */}
+          <div className="loader-card relative flex h-24 w-24 items-center justify-center rounded-2xl bg-white shadow-[0_0_40px_rgba(255,149,0,0.45)]">
+            <Image
+              src="/logo.png"
+              alt=""
+              width={170}
+              height={70}
+              priority
+              className="h-auto w-[78%]"
+            />
           </div>
         </div>
 
-        <div className="text-[10px] font-semibold uppercase tracking-[0.45em] text-ink/50">
+        <div className="text-[10px] font-semibold uppercase tracking-[0.45em] text-ink/55">
           Eletricidade · Construção
         </div>
 

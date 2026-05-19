@@ -16,42 +16,99 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://dainec.pt";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dainec.pt"),
-  title: "DAINEC | Eletricidade e Construção",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "DAINEC | Eletricidade e Construção em Portugal",
+    template: "%s · DAINEC",
+  },
   description:
-    "Serviços de eletricidade, instalações elétricas, reparações, remodelações e construção com segurança, qualidade e profissionalismo. Peça orçamento à DAINEC.",
+    "Serviços de eletricidade, instalações elétricas, reparações, quadros elétricos, iluminação, remodelações e construção. Atendimento a particulares e empresas em Portugal. Orçamentos rápidos via WhatsApp.",
   applicationName: "DAINEC",
+  authors: [{ name: "DAINEC" }],
+  creator: "DAINEC",
+  publisher: "DAINEC",
   keywords: [
     "eletricista Portugal",
     "instalações elétricas",
+    "reparações elétricas",
     "quadros elétricos",
+    "iluminação LED",
     "remodelações",
-    "construção",
+    "construção civil",
+    "manutenção técnica",
+    "obras Portugal",
     "DAINEC",
+    "Dainec.lda",
   ],
+  category: "Construction & Electrical Services",
+  alternates: {
+    canonical: "/",
+    languages: { "pt-PT": "/" },
+  },
   openGraph: {
     type: "website",
     locale: "pt_PT",
     siteName: "DAINEC",
-    title: "DAINEC | Eletricidade e Construção",
+    title: "DAINEC | Eletricidade e Construção em Portugal",
     description:
       "Instalações elétricas, reparações, remodelações e construção em Portugal. Orçamentos rápidos via WhatsApp.",
     url: "/",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DAINEC — Eletricidade e Construção",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DAINEC | Eletricidade e Construção",
+    title: "DAINEC | Eletricidade e Construção em Portugal",
     description:
       "Instalações elétricas, reparações, remodelações e construção em Portugal.",
+    images: ["/og-image.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
+  formatDetection: { telephone: true, email: true, address: false },
+  other: {
+    "format-detection": "telephone=yes",
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
+    { media: "(prefers-color-scheme: light)", color: "#0A0A0A" },
+  ],
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

@@ -2,15 +2,40 @@
 
 import { WHATSAPP_URL } from "@/lib/constants";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { CountUp } from "./CountUp";
 
 export function Hero() {
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (
+      typeof window === "undefined" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const el = bgRef.current;
+        if (el) el.style.transform = `translate3d(0, ${window.scrollY * 0.18}px, 0)`;
+        raf = 0;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
   return (
     <section
       id="inicio"
       className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-28 md:pb-24 md:pt-32"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
+      {/* Background image with parallax */}
+      <div ref={bgRef} className="absolute inset-0 -z-10 will-change-transform">
         <Image
           src="/portfolio/img-6125.jpg"
           alt=""
@@ -89,7 +114,7 @@ export function Hero() {
               target="_blank"
               rel="noopener"
               data-track="cta_hero_whatsapp"
-              className="cta-pulse group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-md bg-brand px-7 py-4 text-sm font-bold uppercase tracking-wider text-bg shadow-glow transition-transform hover:scale-[1.03] active:scale-[0.98] sm:text-base"
+              className="cta-pulse magnetic group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-md bg-brand px-7 py-4 text-sm font-bold uppercase tracking-wider text-bg shadow-glow hover:shadow-glow-lg sm:text-base"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -126,8 +151,14 @@ export function Hero() {
             data-reveal-delay="320"
             className="mt-14 grid max-w-2xl grid-cols-3 gap-4 border-t border-line pt-6"
           >
-            <Stat n="100%" label="Segurança em obra" />
-            <Stat n="24h" label="Resposta rápida" />
+            <Stat
+              n={<><CountUp to={100} />%</>}
+              label="Segurança em obra"
+            />
+            <Stat
+              n={<><CountUp to={24} />h</>}
+              label="Resposta rápida"
+            />
             <Stat n="PT" label="Particulares e empresas" />
           </div>
         </div>
@@ -173,7 +204,7 @@ export function Hero() {
   );
 }
 
-function Stat({ n, label }: { n: string; label: string }) {
+function Stat({ n, label }: { n: React.ReactNode; label: string }) {
   return (
     <div>
       <div className="font-display text-2xl font-extrabold text-brand md:text-3xl">

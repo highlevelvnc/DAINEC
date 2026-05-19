@@ -82,7 +82,7 @@ export function Services() {
               key={s.title}
               data-reveal="up"
               data-reveal-delay={String((i % 4) * 80)}
-              className="card-spot group relative overflow-hidden rounded-lg border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand hover:shadow-glow sm:p-7"
+              className="card-spot tilt group relative overflow-hidden rounded-lg border border-line bg-surface p-6 transition-all duration-300 hover:border-brand hover:shadow-glow sm:p-7"
             >
               {/* corner node */}
               <span className="absolute right-3 top-3 h-1.5 w-1.5 bg-brand opacity-50 transition-opacity group-hover:opacity-100" />

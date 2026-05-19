@@ -35,6 +35,34 @@ export function CTA() {
           </div>
           <span className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
 
+          {/* Floating sparks (energy) */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            {[
+              { left: "8%", d: "5.5s", delay: "0s", x0: "0px", x1: "20px" },
+              { left: "22%", d: "7s", delay: "1.2s", x0: "0px", x1: "-12px" },
+              { left: "38%", d: "6s", delay: "0.6s", x0: "0px", x1: "16px" },
+              { left: "55%", d: "8s", delay: "2.4s", x0: "0px", x1: "-22px" },
+              { left: "70%", d: "5s", delay: "1.8s", x0: "0px", x1: "10px" },
+              { left: "84%", d: "6.5s", delay: "0.3s", x0: "0px", x1: "-18px" },
+              { left: "92%", d: "7.5s", delay: "3.2s", x0: "0px", x1: "14px" },
+            ].map((s, i) => (
+              <span
+                key={i}
+                className="spark"
+                style={
+                  {
+                    left: s.left,
+                    top: "-10%",
+                    "--d": s.d,
+                    "--delay": s.delay,
+                    "--x0": s.x0,
+                    "--x1": s.x1,
+                  } as React.CSSProperties
+                }
+              />
+            ))}
+          </div>
+
           <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-12">
             <div className="md:col-span-7">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-bg/20 bg-bg/10 px-3 py-1 backdrop-blur">
@@ -57,7 +85,7 @@ export function CTA() {
                 target="_blank"
                 rel="noopener"
                 data-track="cta_section_whatsapp"
-                className="group inline-flex items-center justify-center gap-3 rounded-md bg-bg px-8 py-5 text-base font-bold uppercase tracking-wider text-ink shadow-xl transition-transform hover:scale-[1.03] active:scale-[0.98]"
+                className="magnetic group inline-flex items-center justify-center gap-3 rounded-md bg-bg px-8 py-5 text-base font-bold uppercase tracking-wider text-ink shadow-xl"
               >
                 <svg
                   viewBox="0 0 24 24"

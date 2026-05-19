@@ -11,22 +11,79 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { RevealInit } from "@/components/RevealInit";
 import { CardSpotInit } from "@/components/CardSpotInit";
+import { InteractionsInit } from "@/components/InteractionsInit";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Tracking } from "@/components/Tracking";
 import { COMPANY, PHONE_TEL } from "@/lib/constants";
 
+const SITE = "https://dainec.pt";
+const SERVICES = [
+  "Instalações elétricas",
+  "Reparações elétricas",
+  "Quadros elétricos",
+  "Iluminação interior e exterior",
+  "Remodelações",
+  "Construção e acabamentos",
+  "Manutenção técnica",
+  "Apoio a obras e projetos",
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://dainec.pt/#business",
-  name: COMPANY.name,
-  legalName: COMPANY.fullName,
-  description:
-    "Serviços de eletricidade, instalações elétricas, reparações, remodelações e construção em Portugal.",
-  telephone: PHONE_TEL,
-  url: "https://dainec.pt",
-  areaServed: { "@type": "Country", name: "Portugal" },
-  sameAs: [COMPANY.instagram, COMPANY.facebook],
-  priceRange: "€€",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: SITE,
+      name: COMPANY.name,
+      inLanguage: "pt-PT",
+      publisher: { "@id": `${SITE}/#business` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE}/#webpage`,
+      url: SITE,
+      name: "DAINEC | Eletricidade e Construção em Portugal",
+      inLanguage: "pt-PT",
+      isPartOf: { "@id": `${SITE}/#website` },
+      about: { "@id": `${SITE}/#business` },
+      primaryImageOfPage: `${SITE}/og-image.png`,
+    },
+    {
+      "@type": ["LocalBusiness", "Electrician", "GeneralContractor"],
+      "@id": `${SITE}/#business`,
+      name: COMPANY.name,
+      legalName: COMPANY.fullName,
+      description:
+        "Serviços de eletricidade, instalações elétricas, reparações, remodelações e construção em Portugal.",
+      url: SITE,
+      logo: `${SITE}/logo.png`,
+      image: `${SITE}/og-image.png`,
+      telephone: PHONE_TEL,
+      priceRange: "€€",
+      areaServed: { "@type": "Country", name: "Portugal" },
+      address: { "@type": "PostalAddress", addressCountry: "PT" },
+      sameAs: [COMPANY.instagram, COMPANY.facebook],
+      makesOffer: SERVICES.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s },
+      })),
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: PHONE_TEL,
+        contactType: "customer service",
+        availableLanguage: ["Portuguese"],
+        areaServed: "PT",
+      },
+    },
+    {
+      "@type": "Service",
+      name: "Eletricidade e Construção",
+      provider: { "@id": `${SITE}/#business` },
+      areaServed: { "@type": "Country", name: "Portugal" },
+      serviceType: SERVICES,
+    },
+  ],
 };
 
 export default function HomePage() {
@@ -37,6 +94,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Loader />
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
@@ -51,6 +109,7 @@ export default function HomePage() {
       <FloatingWhatsApp />
       <RevealInit />
       <CardSpotInit />
+      <InteractionsInit />
       <Tracking />
     </>
   );
