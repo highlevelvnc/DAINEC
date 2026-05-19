@@ -1,11 +1,15 @@
 import { Loader } from "@/components/Loader";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
 import { Services } from "@/components/Services";
+import { Process } from "@/components/Process";
 import { WhyUs } from "@/components/WhyUs";
 import { About } from "@/components/About";
 import { Portfolio } from "@/components/Portfolio";
 import { CTA } from "@/components/CTA";
+import { FAQ } from "@/components/FAQ";
+import { FAQ_ITEMS } from "@/lib/faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -17,71 +21,71 @@ import { Tracking } from "@/components/Tracking";
 import { COMPANY, PHONE_TEL } from "@/lib/constants";
 
 const SITE = "https://dainec.pt";
-const SERVICES = [
-  "Instalações elétricas",
-  "Reparações elétricas",
-  "Quadros elétricos",
-  "Iluminação interior e exterior",
-  "Remodelações",
-  "Construção e acabamentos",
-  "Manutenção técnica",
-  "Apoio a obras e projetos",
-];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": `${SITE}/#website`,
-      url: SITE,
+      "@type": "Organization",
+      "@id": `${SITE}/#org`,
       name: COMPANY.name,
-      inLanguage: "pt-PT",
-      publisher: { "@id": `${SITE}/#business` },
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${SITE}/#webpage`,
+      legalName: COMPANY.fullName,
       url: SITE,
-      name: "DAINEC | Eletricidade e Construção em Portugal",
-      inLanguage: "pt-PT",
-      isPartOf: { "@id": `${SITE}/#website` },
-      about: { "@id": `${SITE}/#business` },
-      primaryImageOfPage: `${SITE}/og-image.png`,
+      logo: `${SITE}/logo.png`,
+      sameAs: [COMPANY.instagram, COMPANY.facebook],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: PHONE_TEL,
+          contactType: "customer service",
+          areaServed: "PT",
+          availableLanguage: "pt-PT",
+        },
+      ],
     },
     {
-      "@type": ["LocalBusiness", "Electrician", "GeneralContractor"],
+      "@type": "LocalBusiness",
       "@id": `${SITE}/#business`,
       name: COMPANY.name,
       legalName: COMPANY.fullName,
       description:
         "Serviços de eletricidade, instalações elétricas, reparações, remodelações e construção em Portugal.",
-      url: SITE,
-      logo: `${SITE}/logo.png`,
       image: `${SITE}/og-image.png`,
       telephone: PHONE_TEL,
-      priceRange: "€€",
+      url: SITE,
       areaServed: { "@type": "Country", name: "Portugal" },
-      address: { "@type": "PostalAddress", addressCountry: "PT" },
       sameAs: [COMPANY.instagram, COMPANY.facebook],
-      makesOffer: SERVICES.map((s) => ({
+      priceRange: "€€",
+      makesOffer: [
+        "Instalações Elétricas",
+        "Reparações Elétricas",
+        "Quadros Elétricos",
+        "Iluminação Interior e Exterior",
+        "Remodelações",
+        "Construção e Acabamentos",
+        "Manutenção Técnica",
+        "Apoio a Obras e Projetos",
+      ].map((name) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s },
+        itemOffered: { "@type": "Service", name },
       })),
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: PHONE_TEL,
-        contactType: "customer service",
-        availableLanguage: ["Portuguese"],
-        areaServed: "PT",
-      },
     },
     {
-      "@type": "Service",
-      name: "Eletricidade e Construção",
-      provider: { "@id": `${SITE}/#business` },
-      areaServed: { "@type": "Country", name: "Portugal" },
-      serviceType: SERVICES,
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: SITE,
+      name: "DAINEC",
+      inLanguage: "pt-PT",
+      publisher: { "@id": `${SITE}/#org` },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE}/#faq`,
+      mainEntity: FAQ_ITEMS.map((it) => ({
+        "@type": "Question",
+        name: it.q,
+        acceptedAnswer: { "@type": "Answer", text: it.a },
+      })),
     },
   ],
 };
@@ -98,11 +102,14 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
+        <Marquee />
         <Services />
+        <Process />
         <WhyUs />
         <About />
         <Portfolio />
         <CTA />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

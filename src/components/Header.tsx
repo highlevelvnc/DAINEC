@@ -30,7 +30,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-screen items-center justify-between gap-3 px-4 py-3 md:px-12 md:py-5">
         <Link href="#inicio" aria-label="DAINEC início" className="shrink-0">
-          <Logo />
+          <Logo height={64} priority className="md:!h-[88px]" />
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">

@@ -16,7 +16,7 @@ export function Footer() {
       </div>
       <div className="mx-auto grid max-w-screen grid-cols-1 gap-10 px-5 py-16 md:grid-cols-12 md:px-12">
         <div className="md:col-span-5">
-          <Logo />
+          <Logo height={72} />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink/60">
             Eletricidade e construção com qualidade, segurança e compromisso.
           </p>

@@ -18,26 +18,23 @@ export function Loader() {
       role="status"
       aria-label="A carregar DAINEC"
     >
-      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,149,0,0.14),_transparent_65%)]" />
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,149,0,0.18),_transparent_60%)]" />
 
-      <div className="relative flex flex-col items-center gap-6 px-6">
-        {/* Energy ripples around the logo */}
-        <div className="relative flex h-32 w-32 items-center justify-center">
-          <span className="loader-ripple" />
-          <span className="loader-ripple loader-ripple-2" />
-          <span className="loader-ripple loader-ripple-3" />
+      <div className="relative flex flex-col items-center gap-7 px-6">
+        {/* Energy ripples around the bolt */}
+        <div className="relative flex h-48 w-48 items-center justify-center">
+          <span className="loader-ripple-circle" />
+          <span className="loader-ripple-circle loader-ripple-2" />
+          <span className="loader-ripple-circle loader-ripple-3" />
 
-          {/* Logo card */}
-          <div className="loader-card relative flex h-24 w-24 items-center justify-center rounded-2xl bg-white shadow-[0_0_40px_rgba(255,149,0,0.45)]">
-            <Image
-              src="/logo.png"
-              alt=""
-              width={170}
-              height={70}
-              priority
-              className="h-auto w-[78%]"
-            />
-          </div>
+          <Image
+            src="/logo-light.png"
+            alt=""
+            width={220}
+            height={92}
+            priority
+            className="loader-logo relative h-auto w-[170px] drop-shadow-[0_0_20px_rgba(255,149,0,0.6)]"
+          />
         </div>
 
         <div className="text-[10px] font-semibold uppercase tracking-[0.45em] text-ink/55">

@@ -10,13 +10,13 @@ export function About() {
           className="mb-8 flex items-center justify-center"
         >
           <div className="relative">
-            <span className="absolute inset-0 -m-6 rounded-full bg-brand/15 blur-2xl" />
+            <span className="absolute inset-0 -m-10 rounded-full bg-brand/15 blur-3xl" />
             <Image
-              src="/logo.png"
+              src="/logo-light.png"
               alt="Logótipo DAINEC"
-              width={220}
-              height={92}
-              className="logo-glow relative h-auto w-[180px] md:w-[220px]"
+              width={420}
+              height={160}
+              className="relative h-auto w-[280px] drop-shadow-[0_0_24px_rgba(255,149,0,0.45)] md:w-[420px]"
             />
           </div>
         </div>

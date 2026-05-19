@@ -18,9 +18,9 @@ export const COMPANY = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "#inicio", label: "Início" },
   { href: "#servicos", label: "Serviços" },
-  { href: "#sobre", label: "Sobre" },
+  { href: "#processo", label: "Processo" },
   { href: "#projetos", label: "Projetos" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ] as const;
