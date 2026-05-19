@@ -13,6 +13,7 @@ import { FAQ_ITEMS } from "@/lib/faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { RevealInit } from "@/components/RevealInit";
 import { CardSpotInit } from "@/components/CardSpotInit";
 import { InteractionsInit } from "@/components/InteractionsInit";
@@ -114,6 +115,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <StickyMobileCTA />
       <RevealInit />
       <CardSpotInit />
       <InteractionsInit />

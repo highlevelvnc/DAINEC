@@ -29,7 +29,7 @@ export function FloatingWhatsApp() {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 z-40 flex items-center gap-3 transition-all duration-300 md:bottom-7 md:right-7 ${
+      className={`fixed bottom-7 right-7 z-40 hidden items-center gap-3 transition-all duration-300 md:flex ${
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0"
@@ -49,10 +49,10 @@ export function FloatingWhatsApp() {
         rel="noopener"
         aria-label="Falar no WhatsApp"
         data-track="cta_floating_whatsapp"
-        className="group relative inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_28px_rgba(37,211,102,0.55)] ring-4 ring-white/10 transition-transform hover:scale-110 active:scale-95 md:h-14 md:w-14"
+        className="group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_28px_rgba(37,211,102,0.55)] ring-4 ring-white/10 transition-transform hover:scale-110 active:scale-95"
       >
         <span className="absolute inset-0 -z-10 animate-pulseDot rounded-full bg-[#25D366]/40" />
-        <svg className="h-8 w-8 fill-current md:h-7 md:w-7" viewBox="0 0 24 24" aria-hidden>
+        <svg className="h-7 w-7 fill-current" viewBox="0 0 24 24" aria-hidden>
           <path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6 0c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5l.3-.5c.1-.2 0-.4 0-.5L9 5.7C8.7 5 8.5 5.1 8.3 5.1H7.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 22a9.9 9.9 0 0 1-5-1.4L2 22l1.4-4.9A10 10 0 1 1 12 22Z" />
         </svg>
       </a>

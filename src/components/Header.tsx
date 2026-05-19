@@ -29,8 +29,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-screen items-center justify-between gap-3 px-4 py-3 md:px-12 md:py-5">
-        <Link href="#inicio" aria-label="DAINEC início" className="shrink-0">
-          <Logo height={64} priority className="md:!h-[88px]" />
+        <Link
+          href="#inicio"
+          aria-label="DAINEC início"
+          className="shrink-0 transition-transform active:scale-95"
+        >
+          <Logo height={56} priority className="sm:!h-[64px] md:!h-[80px]" />
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
@@ -56,19 +60,19 @@ export function Header() {
           Pedir Orçamento
         </a>
 
-        {/* Mobile compact WhatsApp pill */}
+        {/* Mobile compact WhatsApp — icon only at 320px, label visible from 360px */}
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener"
           data-track="cta_header_compact"
           aria-label="WhatsApp DAINEC"
-          className="inline-flex h-10 items-center gap-1.5 rounded-md bg-brand px-3 text-xs font-bold uppercase tracking-wider text-bg shadow-glow md:hidden"
+          className="inline-flex h-10 items-center gap-1.5 rounded-md bg-brand px-3 text-xs font-bold uppercase tracking-wider text-bg shadow-glow transition-transform active:scale-95 md:hidden"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
             <path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6 0c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5l.3-.5c.1-.2 0-.4 0-.5L9 5.7C8.7 5 8.5 5.1 8.3 5.1H7.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 22a9.9 9.9 0 0 1-5-1.4L2 22l1.4-4.9A10 10 0 1 1 12 22Z" />
           </svg>
-          Orçamento
+          <span className="hidden xs:inline">Orçamento</span>
         </a>
 
         <button

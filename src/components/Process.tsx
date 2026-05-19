@@ -65,8 +65,13 @@ export function Process() {
           </p>
         </div>
 
-        <ol className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {/* connecting rail (desktop) */}
+        <ol className="relative grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          {/* vertical rail (mobile) */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-[35px] top-6 bottom-6 w-px bg-gradient-to-b from-brand via-brand/40 to-transparent md:hidden"
+          />
+          {/* horizontal rail (desktop) */}
           <span
             aria-hidden
             className="pointer-events-none absolute left-0 right-0 top-[58px] hidden h-px bg-gradient-to-r from-line via-brand/60 to-line lg:block"
@@ -77,21 +82,23 @@ export function Process() {
               key={s.n}
               data-reveal="up"
               data-reveal-delay={String((i % 4) * 90)}
-              className="group relative"
+              className="group relative flex gap-5 md:block"
             >
-              <div className="relative z-10 mb-5 inline-flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-brand/40 bg-bg font-display text-2xl font-extrabold text-brand transition-all duration-300 group-hover:bg-brand group-hover:text-bg group-hover:shadow-glow">
+              <div className="relative z-10 inline-flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-2xl border border-brand/40 bg-bg font-display text-xl font-extrabold text-brand transition-all duration-300 group-hover:bg-brand group-hover:text-bg group-hover:shadow-glow md:mb-5 md:h-[72px] md:w-[72px] md:text-2xl">
                 {s.n}
                 <span
                   aria-hidden
                   className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-brand opacity-0 transition-opacity group-hover:opacity-100"
                 />
               </div>
-              <h3 className="font-display text-xl font-bold text-ink">
-                {s.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink/65">
-                {s.desc}
-              </p>
+              <div className="flex-1">
+                <h3 className="font-display text-lg font-bold text-ink md:text-xl">
+                  {s.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65 md:mt-3">
+                  {s.desc}
+                </p>
+              </div>
             </li>
           ))}
         </ol>
