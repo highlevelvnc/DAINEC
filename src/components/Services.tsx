@@ -52,9 +52,13 @@ export function Services() {
           <div>
             <div
               data-reveal="up"
-              className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-400"
+              className="mb-4 inline-flex items-baseline gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-400"
             >
-              <span className="h-px w-8 bg-brand" /> O que fazemos
+              <span className="font-mono text-[10px] text-brand/60">
+                01 /
+              </span>
+              <span className="h-px w-8 self-center bg-brand" />
+              <span>O que fazemos</span>
             </div>
             <h2
               data-reveal="up"
@@ -82,7 +86,7 @@ export function Services() {
               key={s.title}
               data-reveal="up"
               data-reveal-delay={String((i % 4) * 80)}
-              className="card-spot tilt group relative overflow-hidden rounded-lg border border-line bg-surface p-6 transition-all duration-300 hover:border-brand hover:shadow-glow sm:p-7"
+              className="card-spot tilt gradient-border group relative overflow-hidden rounded-lg border border-line bg-surface p-6 transition-all duration-300 hover:border-transparent hover:shadow-glow sm:p-7"
             >
               {/* corner node */}
               <span className="absolute right-3 top-3 h-1.5 w-1.5 bg-brand opacity-50 transition-opacity group-hover:opacity-100" />

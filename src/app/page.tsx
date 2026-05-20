@@ -2,11 +2,13 @@ import { Loader } from "@/components/Loader";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
+import { TrustStrip } from "@/components/TrustStrip";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { WhyUs } from "@/components/WhyUs";
 import { About } from "@/components/About";
 import { Portfolio } from "@/components/Portfolio";
+import { Reviews } from "@/components/Reviews";
 import { CTA } from "@/components/CTA";
 import { FAQ } from "@/components/FAQ";
 import { FAQ_ITEMS } from "@/lib/faq";
@@ -104,11 +106,13 @@ export default function HomePage() {
       <main>
         <Hero />
         <Marquee />
+        <TrustStrip />
         <Services />
         <Process />
         <WhyUs />
         <About />
         <Portfolio />
+        <Reviews />
         <CTA />
         <FAQ />
         <Contact />

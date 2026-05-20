@@ -94,6 +94,85 @@ button, a {
   }
 }
 
+/* Gradient mesh ambient background for hero — slowly drifts */
+.bg-mesh {
+  background-image:
+    radial-gradient(at 18% 22%, rgba(255, 149, 0, 0.18) 0px, transparent 45%),
+    radial-gradient(at 82% 12%, rgba(255, 149, 0, 0.08) 0px, transparent 50%),
+    radial-gradient(at 8% 90%, rgba(255, 149, 0, 0.12) 0px, transparent 55%),
+    radial-gradient(at 95% 78%, rgba(255, 149, 0, 0.10) 0px, transparent 50%);
+  background-size: 220% 220%;
+  animation: mesh-drift 22s ease-in-out infinite;
+}
+@keyframes mesh-drift {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-mesh { animation: none; }
+}
+
+/* Shimmer sweep across primary CTAs */
+.shimmer { position: relative; overflow: hidden; }
+.shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-110%);
+  animation: shimmer-sweep 4s ease-in-out infinite;
+  animation-delay: 1.6s;
+  pointer-events: none;
+}
+@keyframes shimmer-sweep {
+  0%, 30% { transform: translateX(-110%); }
+  60%, 100% { transform: translateX(110%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shimmer::before { animation: none; opacity: 0; }
+}
+
+/* Animated brand-gradient border for emphasis cards */
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 149, 0, 0.85) 60deg,
+    transparent 120deg,
+    transparent 240deg,
+    rgba(255, 149, 0, 0.65) 300deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: spin-slow 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.gradient-border:hover::before { opacity: 1; }
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
 /* Subtle electric grid background */
 .bg-grid {
   background-image:
@@ -133,7 +212,7 @@ button, a {
   );
 }
 
-/* Loader */
+/* Loader — full-screen black overlay that slides up on exit (clip-path) */
 .loader-overlay {
   position: fixed;
   inset: 0;
@@ -142,12 +221,17 @@ button, a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  clip-path: inset(0 0 0 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    visibility 0.9s,
+    clip-path 0.9s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .loader-overlay.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  clip-path: inset(0 0 100% 0);
 }
 
 /* Loader card + ripples */

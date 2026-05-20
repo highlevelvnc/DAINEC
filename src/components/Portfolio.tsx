@@ -67,9 +67,11 @@ export function Portfolio() {
           <div>
             <div
               data-reveal="up"
-              className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-400"
+              className="mb-4 inline-flex items-baseline gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-400"
             >
-              <span className="h-px w-8 bg-brand" /> Trabalhos realizados
+              <span className="font-mono text-[10px] text-brand/60">04 /</span>
+              <span className="h-px w-8 self-center bg-brand" />
+              <span>Trabalhos realizados</span>
             </div>
             <h2
               data-reveal="up"

@@ -47,6 +47,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/85 to-bg/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/60" />
         <div className="absolute inset-0 bg-grid opacity-60" />
+        <div className="absolute inset-0 bg-mesh opacity-90 mix-blend-screen" />
       </div>
 
       {/* Floating accents */}
@@ -57,14 +58,21 @@ export function Hero() {
         <div className="lg:col-span-8">
           <div
             data-reveal="up"
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-brand/30 bg-brand/5 px-4 py-2"
+            className="mb-6 inline-flex flex-wrap items-center gap-2"
           >
-            <span className="relative inline-flex h-2 w-2">
-              <span className="absolute inset-0 animate-pulseDot rounded-full bg-brand" />
-              <span className="relative h-2 w-2 rounded-full bg-brand" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1.5">
+              <span className="relative inline-flex h-2 w-2">
+                <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400" />
+                <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-emerald-300">
+                Disponível agora
+              </span>
             </span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-brand-400">
-              Eletricidade · Construção · Portugal
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 py-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-brand-400">
+                Eletricidade · Construção · Portugal
+              </span>
             </span>
           </div>
 
@@ -114,7 +122,7 @@ export function Hero() {
               target="_blank"
               rel="noopener"
               data-track="cta_hero_whatsapp"
-              className="cta-pulse magnetic group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-md bg-brand px-7 py-4 text-sm font-bold uppercase tracking-wider text-bg shadow-glow hover:shadow-glow-lg sm:text-base"
+              className="cta-pulse magnetic shimmer group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-md bg-brand px-7 py-4 text-sm font-bold uppercase tracking-wider text-bg shadow-glow hover:shadow-glow-lg sm:text-base"
             >
               <svg
                 viewBox="0 0 24 24"
