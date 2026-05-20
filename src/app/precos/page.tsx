@@ -109,7 +109,7 @@ const FAQ = [
   },
   {
     q: "Como funciona o pagamento?",
-    a: "Para o valor one-time, 50% no arranque e 50% na entrega. Mensalidades por transferência ou MB Way no início de cada mês. Emito recibo verde com NIF da empresa.",
+    a: "Para o valor one-time, 50% no arranque e 50% na entrega. Mensalidades por transferência ou MB Way no início de cada mês. Emito recibo verde com NIF da empresa, isento de IVA ao abrigo do artigo 53.º do CIVA — o valor que vê é exactamente o que paga.",
   },
   {
     q: "E se eu quiser cancelar a mensalidade?",
@@ -186,8 +186,9 @@ export default function PrecosPage() {
         </div>
 
         <p className="mx-auto mt-10 max-w-3xl text-center text-xs text-ink/55 md:text-sm">
-          Valores em euros. IVA não incluído. Pagamento one-time em 2x (50%
-          arranque + 50% entrega). Mensalidades sem fidelização.
+          Valores em euros. Isento de IVA ao abrigo do artigo 53.º do CIVA.
+          Pagamento one-time em 2x (50% arranque + 50% entrega). Mensalidades
+          sem fidelização.
           <br />
           Investimento em anúncios (ad spend) é à parte e pago directamente ao
           Meta e ao Google.
