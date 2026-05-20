@@ -389,26 +389,33 @@ export default function PropostaPage() {
                   </span>
                 </div>
                 <h2 className="font-display text-3xl font-extrabold leading-tight text-bg sm:text-4xl">
-                  Aprovar a entrega e pôr o site no ar.
+                  Ver pacotes e investimento.
                 </h2>
                 <p className="mt-4 max-w-lg text-base text-bg/85">
-                  Quando der o go, publicamos no domínio definitivo (ex.
-                  dainec.pt), instalamos o tracking de campanhas e arrancamos
-                  com a fase 2 do roadmap.
+                  Três caminhos com valores claros — sem fidelização e sem
+                  letras pequenas. Escolhe o que faz sentido para esta fase
+                  da DAINEC.
                 </p>
               </div>
               <div className="flex flex-col gap-3 md:col-span-5 md:items-end">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener"
+                <Link
+                  href="/precos"
                   className="inline-flex items-center justify-center gap-3 rounded-md bg-bg px-8 py-4 text-base font-bold uppercase tracking-wider text-ink shadow-xl transition-transform hover:scale-[1.03] active:scale-[0.98]"
                 >
-                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-[#25D366]" aria-hidden>
-                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7a12 12 0 0 0 5.7 1.4h.1c6.5 0 11.9-5.3 11.9-11.9 0-3.2-1.3-6.2-3.5-8.4M12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.3-.4A9.9 9.9 0 0 1 2.1 11.9C2.1 6.4 6.5 2 12 2a9.9 9.9 0 0 1 9.9 9.9c0 5.5-4.4 9.9-9.9 9.9" />
+                  Ver preços e pacotes
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                  Falar agora no WhatsApp
-                </a>
+                </Link>
                 <Link
                   href="/"
                   className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-bg/85 underline-offset-4 hover:underline"
